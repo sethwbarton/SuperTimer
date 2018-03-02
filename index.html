@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<header>
+  <title>Super Timer</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400|Roboto:100" rel="stylesheet">
+</header>
+
+ <body>
+
+<div id="timerApp">
+
+ <h1 id="mainHeader">
+ Super Countdown
+ </h1>
+ <h2> It's Super! </h2>
+
+ <form>
+ Time you'd like to count down to:
+ Year (yyyy): <input type='number' name='year' id='year'>
+ Day (dd): <input type='number' name='day' id='day'>
+ Month (mm): <input type='number' name='month' id='month'>
+ <input type='submit' value='Submit' id='submit' v-on:click.prevent='setDate'>
+ </form>
+
+ <p v-if='dateSelected'>Your target date is: {{targetDate}}</p>
+ <p v-else> Choose a date to count down to. </p>
+
+<div id="timer">
+<p>Time till your event:</p>
+
+<div v-if='dateSelected' class='block'>
+<p class='digit'>{{days}}</p>
+<p class='text'>Days</p>
+<p class='digit'>{{hours}}</p>
+<p class='text'>Hours</p>
+<p class='digit'>{{minutes}}</p>
+<p class='text'>Minutes</p>
+<p class='digit'>{{seconds}}</p>
+<p class='text'>Seconds</p>
+</div>
+
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script text="type/javascript" src="scripts.js"></script>
+
+
+</div>
+
+ </body>
+
+
+ <footer>
+   <p> Made by Seth </p>
+ </footer>
+ </html>
