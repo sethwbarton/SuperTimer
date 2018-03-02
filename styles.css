@@ -1,8 +1,12 @@
-
+body {
+    background-color: #34495e;
+    color: #ecf0f1;
+    font-family: 'Roboto Condensed', serif;
+}
 
 .block {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     margin: 20px;
 }
 
@@ -23,4 +27,8 @@
     font-family: 'Roboto', serif;
     margin: 10px;
     text-align: center;
+}
+
+.mainHeader {
+  text-align: center;
 }

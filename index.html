@@ -10,24 +10,24 @@
 
 <div id="timerApp">
 
- <h1 id="mainHeader">
+ <h1 class="mainHeader">
  Super Countdown
  </h1>
- <h2> It's Super! </h2>
+ <h2 class="mainHeader"> It's Super! </h2>
 
  <form>
- Time you'd like to count down to:
- Year (yyyy): <input type='number' name='year' id='year'>
- Day (dd): <input type='number' name='day' id='day'>
- Month (mm): <input type='number' name='month' id='month'>
+ Enter the day you'd like to count down to:<br/>
+ Year: <input type='number' name='year' id='year'>
+ Day: <input type='number' name='day' id='day'>
+ Month: <input type='number' name='month' id='month'>
  <input type='submit' value='Submit' id='submit' v-on:click.prevent='setDate'>
  </form>
 
- <p v-if='dateSelected'>Your target date is: {{targetDate}}</p>
+ <p v-if='dateSelected'>Your target date is: {{targetFormatted}}</p>
  <p v-else> Choose a date to count down to. </p>
 
 <div id="timer">
-<p>Time till your event:</p>
+<p v-if='dateSelected'>Time till your event:</p>
 
 <div v-if='dateSelected' class='block'>
 <p class='digit'>{{days}}</p>
@@ -55,5 +55,6 @@
 
  <footer>
    <p> Made by Seth </p>
+   <p> <a href="https://github.com/sethwbarton/SuperTimer">Github</a></p>
  </footer>
  </html>

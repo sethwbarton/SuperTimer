@@ -1,17 +1,3 @@
-/*$(document).ready( function () {
-
-  $('#submit').click( function (e) {
-
-    e.preventDefault();
-    today = new Date();
-    targetDate = new Date($('#year').val(),$('#month').val(),$('#day').val());
-    console.log(targetDate);
-
-  });
-
-
-});*/
-
 var app = new Vue ({
   el: '#timerApp',
   data: {
@@ -37,6 +23,21 @@ var app = new Vue ({
 
   days() {
     return Math.trunc((this.timeLeft / 1000) / 60 / 60 / 24);
+  },
+
+  targetFormatted() {
+    var monthNames = [
+      "January", "February", "March",
+      "April", "May", "June", "July",
+      "August", "September", "October",
+      "November", "December"
+    ];
+
+    var day = this.targetDate.getDate();
+    var monthIndex = this.targetDate.getMonth();
+    var year = this.targetDate.getFullYear();
+    return day + ' ' + monthNames[monthIndex] + ' ' + year;
+
   }
 
   },
@@ -45,7 +46,7 @@ var app = new Vue ({
     setDate: function () {
       this.dateSelected = true;
       this.currentDate = new Date();
-      this.targetDate =  new Date($('#year').val(),$('#month').val(),$('#day').val());
+      this.targetDate =  new Date($('#year').val(),$('#month').val() - 1,$('#day').val());
     },
 
     countDown: function () {
