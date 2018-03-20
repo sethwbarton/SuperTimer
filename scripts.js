@@ -38,7 +38,10 @@ var app = new Vue ({
     var year = this.targetDate.getFullYear();
     return day + ' ' + monthNames[monthIndex] + ' ' + year;
 
-  }
+  },
+  created: function() {
+    this.getItems();
+  },
 
   },
 
@@ -47,11 +50,34 @@ var app = new Vue ({
       this.dateSelected = true;
       this.currentDate = new Date();
       this.targetDate =  new Date($('#year').val(),$('#month').val() - 1,$('#day').val());
+      // Add this item to the server.
+      axios.post("/api/items", {
+        targetDate: this.targetDate,
+        timeLeft: this.timeLeft,
+        currentDate: this.currentDate,
+      }).then(response => {
+        this.text = "";
+        this.priorityLevel = "";
+        this.getItems();
+        return true;
+      }).catch(err => {
+      });
     },
 
     countDown: function () {
       this.timeLeft = this.targetDate -  new Date();
-    }
+    },
+
+    DeleteTimer: function () {
+      // Deletes a timer from the server.
+    },
+    getItems: function() {
+        axios.get("/api/items").then(response => {
+        this.items = response.data;
+        return true;
+      }).catch(err => {
+      });
+    },
 
   }
 

@@ -23,7 +23,7 @@
  <input type='submit' value='Submit' id='submit' v-on:click.prevent='setDate'>
  </form>
 
- <p v-if='dateSelected'>Your target date is: {{targetFormatted}}</p>
+ <!--<p v-if='dateSelected'>Your target date is: {{targetFormatted}}</p>-->
  <p v-else> Choose a date to count down to. </p>
 
 <div id="timer">
@@ -46,6 +46,7 @@
 <p class='digit'>{{seconds}}</p>
 <p class='text'>Seconds</p>
 </div>
+<button v-on:click='DeleteTimer'>Delete</button>
 </div>
 
 </div>
